@@ -1,3 +1,10 @@
+# Changelog from upstream
+
+* Bugfix: `promote()` to use window.focusedWindow() instead of window:focusedWindow()
+* Enhancement: added `promoteBy(n)` where a window is moved `n` steps within the overall window ordering
+  * *Changed behavior* of `promote()` to call `promoteBy(1)`
+  * Added `demote()` function to to wrap `promoteBy(-1)`
+
 # hs.tiling
 
 Add tiling window management powers to your [hammerspoon][hammerspoon]. (Fork of nathankot's [mjolnir.tiling](https://github.com/nathankot/mjolnir.tiling).)

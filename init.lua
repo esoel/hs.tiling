@@ -84,6 +84,14 @@ function tiling.cycleLayout()
 end
 
 function tiling.promote()
+    tiling.promoteBy(1)
+end
+
+function tiling.demote()
+    tiling.promoteBy(-1)
+end
+
+function tiling.promoteBy(amount)
   local space = getSpace()
   local windows = space.windows
   local win = window.focusedWindow() or windows[1]
@@ -91,7 +99,7 @@ function tiling.promote()
   if not i then return end
 
   local current = table.remove(windows, i)
-  table.insert(windows, 1, current)
+  table.insert(windows, math.min(math.max(1, i - amount), #windows + 1), current)
   win:focus()
   apply(windows, space.layout)
 end
